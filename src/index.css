@@ -1,13 +1,97 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+#root {
+    background-image: url('./images/background-image.png');
+    height: 100%;
+    background-position: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.main-page {
+    position: absolute;
+    background-color: #d43939;
+    height: 100px;
+    width: 200px;
+    top: 0;
+    bottom: 500px;
+    left: 0;
+    right: 0;
+
+    display: flex;
+
+    margin: auto;
 }
+
+.btn {
+    cursor: pointer;
+    height: 100px;
+    width: 100px;
+    font-size: large;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+.list-row {
+    position: relative;
+    width: 500px;
+    height: 50px;
+    text-align: center;
+    background-color:rgb(252, 205, 188);
+}
+
+.list-item {
+    height: 20px;
+    width: 30px;
+    display: inline;
+    margin: 10%;
+}
+
+.top-scores {
+    position: relative;
+    width: 700px;
+    height: 600px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color:rgb(252, 205, 188);
+}
+
+.game-area {
+    position: relative;
+}
+
+.area {
+    position: relative;
+    margin: 50px auto;
+    width: 700px;
+    height: 700px;
+    border: 2px solid #000000;
+    background-color: thistle;
+  }
+  
+  .snake-part {
+    position: absolute;
+    width: 2%;
+    height: 2%;
+    background-color: #000000;
+    border: 1px solid #ffffff;
+    z-index: 2;
+  }
+  
+  .food {
+    position: absolute;
+    width: 2%;
+    height: 2%;
+    background-color: red;
+    border: 1px solid #ffffff;
+    z-index: 1;
+  }
+  
+  .user-form {
+    position: relative;
+    margin: 50px auto;
+    width: 500px;
+    height: 200px;
+    background-color: rgb(252, 205, 188);
+  }
