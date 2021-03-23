@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Game from './Game';
 import ScoreBoard from './ScoreBoard';
+import App from './App';
 
 
 class UserDetails extends React.Component {
@@ -21,7 +22,7 @@ class UserDetails extends React.Component {
         axios.post(url);
         console.log(this.state.userName);
         this.setState({ isNameSubmitted: true });
-        event.preventDefault();
+        //event.preventDefault();
     }
 
     restartGame = (event) => {
@@ -32,15 +33,15 @@ class UserDetails extends React.Component {
         if (this.isNameSubmitted) {
             return (
                 <div>
-                    <ScoreBoard/>
+                    <App/>
                 </div>
             );
         }
         else {
             return (
                 <div>
-                    <form onSubmit={this.setUserName}>
-                        <label>User Name:
+                    <form className='user-details' onSubmit={this.setUserName}>
+                        <label>Player Name:
                     <input type="text" value={this.state.userName} onChange={e => this.setState({ userName: e.target.value })} />
                         </label>
                         <input type="submit" value="Submit" />

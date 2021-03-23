@@ -94,4 +94,10 @@
     width: 500px;
     height: 200px;
     background-color: rgb(252, 205, 188);
+    float: center;
+  }
+
+  .user-details {
+      position: relative;
+      margin: 15%;
   }

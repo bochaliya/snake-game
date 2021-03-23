@@ -39,7 +39,7 @@ class App extends React.Component {
         else {
             return (
                 <div className='main-page'>
-                    <Button text='Begin!' color='#FFFDD0' onClick={this.beginOnClick} />
+                    <Button text='Play!' color='#FFFDD0' onClick={this.beginOnClick} />
                     <Button text='Score Board' color='#FFFDD0' onClick={this.scoreBoardOnClick} />
                 </div>
             );

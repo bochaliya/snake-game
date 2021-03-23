@@ -136,7 +136,7 @@ class App extends Component {
         <div>
           <div className="user-form">
             <UserDetails score={this.state.snakeParts.length} />
-            <h5>Current Score: {this.state.snakeParts.length}</h5>
+            <h3 style={{textAlign: 'center'}}>Your Score: {this.state.snakeParts.length}</h3>
           </div>
         </div>
       );
