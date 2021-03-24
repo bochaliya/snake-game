@@ -12,8 +12,8 @@ export default class Board extends React.Component {
 
     fillMatrix() {
         let style = {
-            left: '1%',
-            top: '1%'
+            left: '2%',
+            top: '2%'
         }
         let tempArr = [];
         for(let i = 0; i < this.props.boardSize; i++) {
