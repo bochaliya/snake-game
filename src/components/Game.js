@@ -12,11 +12,22 @@ const initialState = {
   direction: 'RIGHT',
   isGameOver: false,
   isGameStarted: false,
+  arenaWidth: 100,
+  arenaHeight: 100,
+  difficulty: 2,
   speed: 200,
   snakeParts: [
     [50, 50],
     [52, 50],
-  ]
+  ],
+  areaStyle: {
+    position: 'relative',
+    margin: '50px auto',
+    width: '700px',
+    height: '700px',
+    border: '2px solid #000000',
+    backgroundColor: 'thistle',
+  }
 }
 
 class App extends Component {
@@ -88,7 +99,7 @@ class App extends Component {
 
   isOutOfArea = () => {
     let head = this.state.snakeParts[this.state.snakeParts.length - 1];
-    if (head[0] >= 100 || head[1] >= 100 || head[0] < 0 || head[1] < 0) {
+    if (head[0] >= 98 || head[1] >= 98 || head[0] <= 0 || head[1] <= 0) {
       this.gameOver();
     }
   }
@@ -124,14 +135,56 @@ class App extends Component {
   }
 
   gameOver = () => {
-    this.state.isGameOver = true;
+    //if(this.state.isGameStarted == true) {
+      this.state.isGameOver = true;
+    //}
     //alert(`game over. score: ${this.state.snakeParts.length}`)
-    this.state.isGameOver = true;
+    //this.state.isGameOver = true;
     //this.setState(initialState);
   }
 
+  setUserDetails = (event) => {
+    this.state.difficulty = parseInt(this.state.difficulty);
+    let newSpeed = 500 / this.state.difficulty;
+    //let newSpeed = 500;
+    console.log(newSpeed);
+    this.state.areaStyle.width = (parseInt(this.state.arenaWidth) * 7) + 'px';
+    this.state.areaStyle.height = (parseInt(this.state.arenaHeight) * 7) + 'px';
+    this.state.speed = newSpeed;
+    let originSnakePartLeft = Math.floor((parseInt(this.state.arenaWidth) * 7)/2);
+    let originSnakePartRight = Math.floor((parseInt(this.state.arenaHeight) * 7)/2);
+    this.state.snakeParts = [
+      [50, 50],
+      [52, 50],
+    ];
+    initialState.speed = newSpeed;
+    //this.setState({speed: newSpeed});
+    console.log(this.state);
+    this.setState({isGameStarted: true});
+    this.componentDidMount();
+    event.preventDefault();
+  }
+
   render() {
-    if (this.state.isGameOver) {
+    if(this.state.isGameStarted == false) {
+      return (
+        <div>
+          <form className='game-details' onSubmit={this.setUserDetails}>
+            <label> Arena Width:
+              <input type="text" value={this.state.arenaWidth} onChange={e => this.setState({arenaWidth: e.target.value})} />
+            </label>
+            <label> Arena Height:
+              <input type="text" value={this.state.arenaHeight} onChange={e => this.setState({arenaHeight: e.target.value})}/>
+            </label>
+            <label> Game Difficulty:
+              <input type="text" value={this.state.difficulty} onChange={e => this.setState({difficulty: e.target.value})}/>
+            </label>
+            <input type="submit" value="Submit"/>
+          </form>
+        </div>
+      )
+    }
+    else if (this.state.isGameOver) {
       return (
         <div>
           <div className="user-form">
@@ -144,7 +197,7 @@ class App extends Component {
     else {
       return (
         <div>
-          <div className='area'>
+          <div style={this.state.areaStyle}>
             <Snake snakeParts={this.state.snakeParts} />
             <Food dot={this.state.food} />
           </div>

@@ -18,7 +18,7 @@ class GameOver extends React.Component {
     };
 
     getTopScores() {
-        axios.get('http://localhost:3001/topScores/', {})
+        axios.get('http://localhost:3001/top-scores', {})
             .then(response => {
                 console.log(response.data);
                 const listItems = response.data.map((d) => {

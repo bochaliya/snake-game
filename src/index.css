@@ -87,6 +87,15 @@
     border: 1px solid #ffffff;
     z-index: 1;
   }
+
+  .board-box {
+    position: absolute;
+    width: 2%;
+    height: 2%;
+    background-color: #fcefa4;
+    border: 1px solid #ffffff;
+    z-index: 1;
+  }
   
   .user-form {
     position: relative;

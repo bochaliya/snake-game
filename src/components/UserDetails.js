@@ -18,8 +18,16 @@ class UserDetails extends React.Component {
     }
 
     setUserName = (event) => {
-        let url = 'http://localhost:3001/user/?userName=' + this.state.userName + '&score=' + this.props.score;
-        axios.post(url);
+        //let url = 'http://localhost:3001/user/?userName=' + this.state.userName + '&score=' + this.props.score;
+        //axios.post(url);
+        axios({
+            method: 'POST',
+            url: 'http://localhost:3001/users',
+            data: {
+                userName: this.state.userName,
+                score: this.props.score,
+            }
+        });
         console.log(this.state.userName);
         this.setState({ isNameSubmitted: true });
         //event.preventDefault();
