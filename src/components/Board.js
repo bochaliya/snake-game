@@ -1,27 +1,38 @@
 import React from 'react';
+import Box from './Box';
 
-class Board extends React.Component {
+export default class Board extends React.Component {
     Board(props) {
         this.props = props;
     }
 
     state = {
-        matrix: []
+        matrix: this.fillMatrix(),
     }
 
-    fillMatrix = () => {
-        for(let i = 0; i < this.props.boardSize; i++) {
-            let tempArr = [];
-            for(let j = 0; j < this.props.boardSize; j++) {
-                let style = {
-                    left: `${j+1}%`,
-                    right: `${i+1}%`
-                }
-                let tempBox = <div className='board-box' style={style}></div>
-                tempArr.push(tempBox);
-            }
-            matrix.push(tempArr);
+    fillMatrix() {
+        let style = {
+            left: '1%',
+            top: '1%'
         }
+        let tempArr = [];
+        for(let i = 0; i < this.props.boardSize; i++) {
+            let elm = <div><Box boardSize={this.props.boardSize} row={i} /></div>
+            tempArr.push(elm);
+        }
+        //console.log(tempArr);
+        return tempArr;
+        console.log(tempArr)
+    }
+
+    render() {
+        return(
+            <div>
+                <ul>
+                    {this.state.matrix}
+                </ul>
+            </div>
+        );
     }
 
 }

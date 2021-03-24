@@ -1,11 +1,10 @@
 import React from 'react';
 
 export default (props)=> {
-    const style = {
-        left: `${props.dot[0]}%`,
-        top: `${props.dot[1]}%`
-    }
+    let style = JSON.parse(JSON.stringify(props.foodStyle));
+    style.left = `${props.dot[0]}%`;
+    style.top = `${props.dot[1]}%`
     return (
-        <div className='food' style={style}></div>
+        <div style={style}></div>
     )
 }

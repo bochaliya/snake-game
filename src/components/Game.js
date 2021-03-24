@@ -4,6 +4,7 @@ import Snake from './Snake';
 import Food from './Food';
 import ScoreBoard from './ScoreBoard';
 import UserDetails from './UserDetails';
+import Board from './Board';
 
 import utils from '../utils/utils';
 
@@ -14,6 +15,7 @@ const initialState = {
   isGameStarted: false,
   arenaWidth: 100,
   arenaHeight: 100,
+  boardSize: 99,
   difficulty: 2,
   speed: 200,
   snakeParts: [
@@ -27,6 +29,22 @@ const initialState = {
     height: '700px',
     border: '2px solid #000000',
     backgroundColor: 'thistle',
+  },
+  foodStyle: {
+    position: 'absolute',
+    width: '2%',
+    height: '2%',
+    backgroundColor: 'red',
+    border: '1px solid #ffffff',
+    zIndex: '1',
+  },
+  snakeStyle: {
+    position: 'absolute',
+    width: '2%',
+    height: '2%',
+    backgroundColor: '#000000',
+    border: '1px solid #ffffff',
+    zIndex: '2',
   }
 }
 
@@ -99,7 +117,7 @@ class App extends Component {
 
   isOutOfArea = () => {
     let head = this.state.snakeParts[this.state.snakeParts.length - 1];
-    if (head[0] >= 98 || head[1] >= 98 || head[0] <= 0 || head[1] <= 0) {
+    if (head[0] >= this.state.boardSize-1 || head[1] >= this.state.boardSize-1 || head[0] <= 0 || head[1] <= 0) {
       this.gameOver();
     }
   }
@@ -198,8 +216,9 @@ class App extends Component {
       return (
         <div>
           <div style={this.state.areaStyle}>
-            <Snake snakeParts={this.state.snakeParts} />
-            <Food dot={this.state.food} />
+            <Board boardSize={this.state.boardSize}/>
+            <Snake snakeParts={this.state.snakeParts} snakeStyle={this.state.snakeStyle} />
+            <Food dot={this.state.food} foodStyle={this.state.foodStyle}/>
           </div>
         </div>
       );

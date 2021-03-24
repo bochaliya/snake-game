@@ -4,12 +4,11 @@ export default (props) => {
     return (
         <div>
             {props.snakeParts.map((part,i)=> {
-                const style = {
-                    left: `${part[0]}%`,
-                    top: `${part[1]}%`
-                }
+                let style = JSON.parse(JSON.stringify(props.snakeStyle));
+                style.left = `${part[0]}%`;
+                style.top = `${part[1]}%`;
                 return (
-                    <div className="snake-part" key={i} style={style}></div>
+                    <div key={i} style={style}></div>
                 )
             })}
         </div>

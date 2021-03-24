@@ -85,15 +85,6 @@
     border: 1px solid #ffffff;
     z-index: 1;
   }
-
-  .board-box {
-    position: absolute;
-    width: 2%;
-    height: 2%;
-    background-color: #fcefa4;
-    border: 1px solid #ffffff;
-    z-index: 1;
-  }
   
   .user-form {
     position: relative;
@@ -116,4 +107,13 @@
       justify-content: center;
       align-items: center;
       height: 40vh;
+  }
+
+  .box {
+    position: absolute;
+    width: 2%;
+    height: 2%;
+    background-color: #fcefa4;
+    border: 1px solid #e8e8dc;
+    z-index: 1;
   }
