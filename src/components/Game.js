@@ -20,8 +20,8 @@ const initialState = {
   difficulty: 2,
   speed: 200,
   snakeParts: [
-    [2, 2],
-    [2, 3]
+    [50, 50],
+    [50, 51]
   ],
   areaStyle: {
     position: 'relative',
@@ -172,11 +172,11 @@ class App extends Component {
     //this.state.areaStyle.width = (parseInt(this.state.arenaWidth) * 7) + 'px';
     //this.state.areaStyle.height = (parseInt(this.state.arenaHeight) * 7) + 'px';
     this.state.speed = newSpeed;
-    let originSnakePartLeft = Math.floor((parseInt(this.state.arenaWidth) * 7)/2);
-    let originSnakePartRight = Math.floor((parseInt(this.state.arenaHeight) * 7)/2);
+    let originSnakePartLeft = Math.floor((parseInt(this.state.boardSize))/2);
+    let originSnakePartRight = Math.floor((parseInt(this.state.boardSize))/2);
     this.state.snakeParts = [
-      [2, 2],
-      [2, 3],
+      [originSnakePartLeft, originSnakePartLeft],
+      [originSnakePartLeft, originSnakePartLeft+1],
     ];
     initialState.speed = newSpeed;
     //this.setState({speed: newSpeed});
