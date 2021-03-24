@@ -148,8 +148,8 @@ class App extends Component {
     let newSpeed = 500 / this.state.difficulty;
     //let newSpeed = 500;
     console.log(newSpeed);
-    this.state.areaStyle.width = (parseInt(this.state.arenaWidth) * 7) + 'px';
-    this.state.areaStyle.height = (parseInt(this.state.arenaHeight) * 7) + 'px';
+    //this.state.areaStyle.width = (parseInt(this.state.arenaWidth) * 7) + 'px';
+    //this.state.areaStyle.height = (parseInt(this.state.arenaHeight) * 7) + 'px';
     this.state.speed = newSpeed;
     let originSnakePartLeft = Math.floor((parseInt(this.state.arenaWidth) * 7)/2);
     let originSnakePartRight = Math.floor((parseInt(this.state.arenaHeight) * 7)/2);
@@ -168,8 +168,8 @@ class App extends Component {
   render() {
     if(this.state.isGameStarted == false) {
       return (
-        <div>
-          <form className='game-details' onSubmit={this.setUserDetails}>
+        <div className='game-details'>
+          <form onSubmit={this.setUserDetails}>
             <label> Arena Width:
               <input type="text" value={this.state.arenaWidth} onChange={e => this.setState({arenaWidth: e.target.value})} />
             </label>

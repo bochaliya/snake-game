@@ -13,9 +13,7 @@
     bottom: 500px;
     left: 0;
     right: 0;
-
     display: flex;
-
     margin: auto;
 }
 
@@ -109,4 +107,13 @@
   .user-details {
       position: relative;
       margin: 15%;
+  }
+
+  .game-details {
+      position: relative;
+      margin: 15px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 40vh;
   }
